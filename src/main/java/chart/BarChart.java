@@ -16,6 +16,26 @@ public class BarChart {
 
     private List<String> data;
 
+    public BarChart() {
+
+    }
+
+    @Override
+    public String toString() {
+        return "BarChart{" +
+                "title='" + title + '\'' +
+                ", fontName='" + fontName + '\'' +
+                ", fontSize=" + fontSize +
+                ", fontColor='" + fontColor + '\'' +
+                ", width=" + width +
+                ", height=" + height +
+                ", backgroundColor='" + backgroundColor + '\'' +
+                ", data=" + data +
+                ", displayTitle=" + displayTitle +
+                ", displayLegend=" + displayLegend +
+                '}';
+    }
+
     private boolean displayTitle;
     private boolean displayLegend;
 
@@ -125,4 +145,80 @@ public class BarChart {
     public void setDisplayLegend(boolean displayLegend) {
         this.displayLegend = displayLegend;
     }
+
+    public static barChartBuilder builder() {
+        return new barChartBuilder();
+    }
+
+    public static class barChartBuilder {
+        private String title;
+
+        private String fontName;
+        private int fontSize;
+        private String fontColor;
+
+        private int width;
+        private int height;
+        private String backgroundColor;
+
+        private List<String> data;
+
+        public barChartBuilder withTitle(String title) {
+            this.title = title;
+            return this;
+
+
+        }
+
+        public barChartBuilder withfontName(String fontName) {
+            this.fontName = fontName;
+            return this;
+        }
+
+        public barChartBuilder withfontSize(int fontName) {
+            this.fontSize = fontSize;
+            return this;
+        }
+
+        public barChartBuilder withfontColor(String fontName) {
+            this.fontColor = fontColor;
+            return this;
+        }
+
+        public barChartBuilder withwidth(int width) {
+            this.width = width;
+            return this;
+        }
+
+        public barChartBuilder withheight(int height) {
+            this.height = height;
+            return this;
+        }
+
+        public barChartBuilder withbackgroundColor(String backgroundColor) {
+            this.backgroundColor = backgroundColor;
+            return this;
+        }
+
+        public barChartBuilder withdata(List<String> data) {
+            this.data = data;
+            return this;
+        }
+
+        public BarChart build() {
+            BarChart barChart = new BarChart();
+            barChart.title = this.title;
+            barChart.fontName = this.fontName;
+            barChart.fontSize = this.fontSize;
+            barChart.fontColor = this.fontColor;
+            barChart.width = this.width;
+            barChart.height = this.height;
+            barChart.data = this.data;
+            barChart.backgroundColor = backgroundColor;
+
+
+            return barChart;
+        }
+    }
+
 }
